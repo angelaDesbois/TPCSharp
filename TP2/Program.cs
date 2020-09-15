@@ -34,21 +34,23 @@ namespace TP2
              foreach (var item in ListeLivres.GroupBy(x=>x.Auteur))
               {
                 Console.WriteLine(item.Average(x => x.NbPages));
+                Console.WriteLine(item.Key.Nom);
               }
 
             //Afficher le titre du livre avec le plus de pages 
 
             var livre = ListeLivres.Max(i => i.NbPages);
-           // var titre = ListeLivres.Where(i => i. == );
+            var titre = ListeLivres.Where(i => i.NbPages == livre );
 
             //Afficher combien ont gagné les auteurs en moyenne (moyenne des factures) 
+            Console.WriteLine("q5");
             Console.WriteLine(ListeAuteurs.SelectMany(x => x.Factures).Average(x => x.Montant));
 
             //Afficher les auteurs et la liste de leurs livres 
 
             foreach (var item in ListeLivres.GroupBy(x => x.Auteur))
             {
-                Console.WriteLine(item.Key);
+                Console.WriteLine(item.Key.Nom);
 
             }
 
