@@ -12,7 +12,7 @@ namespace TP1
         static void Main(string[] args)
         {
             var formes = new List<Forme>();
-
+            // qd accolade on ne passe pas par le constructeur (si () on passe par le constructeur) -> property
             formes.Add(new Cercle { Rayon = 3 });
 
             formes.Add(new Rectangle { Largeur = 3, Longueur = 4 });
