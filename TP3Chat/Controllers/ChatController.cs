@@ -33,7 +33,7 @@ namespace TP3Chat.Controllers
         public ActionResult Delete(int id)
         {
            
-            return View();
+            return View(FakeDb.Instance.ListeChat.FirstOrDefault(x => x.Id == id));
         }
 
         // POST: Chat/Delete/5
@@ -42,7 +42,8 @@ namespace TP3Chat.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                Chat chat = FakeDb.Instance.ListeChat.FirstOrDefault(x => x.Id == id);
+                FakeDb.Instance.ListeChat.Remove(chat);
 
                 return RedirectToAction("Index");
             }
