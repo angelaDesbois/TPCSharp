@@ -1,0 +1,19 @@
+﻿@model TPPizza.Models.PizzaCreateViewModel
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>PizzaCreateViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @Html.Partial("_PizzaDisplayWithId")
+</div>
+<p>
+    @Html.ActionLink("Detail", "Detail", new { id = Model.Pizza.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

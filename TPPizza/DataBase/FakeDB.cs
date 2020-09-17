@@ -38,7 +38,8 @@ namespace TPPizza.DataBase
             new Ingredient{Id=5,Nom="Cheddar"},
             new Ingredient{Id=6,Nom="Saumon"},
             new Ingredient{Id=7,Nom="Champignon"},
-            new Ingredient{Id=8,Nom="Poulet"}
+            new Ingredient{Id=8,Nom="Poulet"},
+            new Ingredient{Id=8,Nom="Chorizo"}
         };
 
         public  List<Pate> PatesDisponibles => new List<Pate>

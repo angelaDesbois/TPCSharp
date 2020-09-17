@@ -13,7 +13,7 @@ namespace TPPizza.Models
         public List<Pate> Pates { get; set; }
 
 
-        public List <int> IdIngredients { get; set; }
-        public int IdPates { get; set; }
+        public List<int> IdIngredients { get; set; } 
+        public int? IdPates { get; set; }
     }
 }

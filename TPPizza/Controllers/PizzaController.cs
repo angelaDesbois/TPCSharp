@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,7 +20,9 @@ namespace TPPizza.Controllers
         // GET: Pizza/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            PizzaCreateViewModel vm = new PizzaCreateViewModel();
+            vm.Pizza = FakeDB.Instance.ListePizza.FirstOrDefault(x => x.Id == vm.IdPates);
+            return View(vm);
         }
 
         // GET: Pizza/Create
@@ -38,8 +41,13 @@ namespace TPPizza.Controllers
             try
             {
                 vm.Pizza.Pate = FakeDB.Instance.ListePate.FirstOrDefault(x => x.Id == vm.IdPates);
+
+                vm.Pizza.Ingredients = FakeDB.Instance.ListeIngredient.Where(x => vm.IdIngredients.Contains(x.Id)).ToList();
+
                 FakeDB.Instance.ListePizza.Add(vm.Pizza);
-                vm.Pizza.Ingredients = FakeDB.Instance.ListeIngredient
+
+                vm.Pizza.Id = FakeDB.Instance.ListePizza.Count == 0 ? 1 : FakeDB.Instance.ListePizza.Max(x=> x.Id)+1;
+
                 return RedirectToAction("Index");
             }
             catch
@@ -74,7 +82,9 @@ namespace TPPizza.Controllers
         // GET: Pizza/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            PizzaCreateViewModel vm = new PizzaCreateViewModel();
+            vm.Pizza = FakeDB.Instance.ListePizza.FirstOrDefault(x => x.Id == id);
+            return View(vm);
         }
 
         // POST: Pizza/Delete/5
@@ -83,7 +93,9 @@ namespace TPPizza.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+               Pizza pizza = FakeDB.Instance.ListePizza.FirstOrDefault(x => x.Id == id);
+                FakeDB.Instance.ListePizza.Remove(pizza);
+
 
                 return RedirectToAction("Index");
             }
