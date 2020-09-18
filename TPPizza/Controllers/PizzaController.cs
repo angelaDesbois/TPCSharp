@@ -21,7 +21,7 @@ namespace TPPizza.Controllers
         public ActionResult Details(int id)
         {
             PizzaCreateViewModel vm = new PizzaCreateViewModel();
-            vm.Pizza = FakeDB.Instance.ListePizza.FirstOrDefault(x => x.Id == vm.IdPates);
+            vm.Pizza = FakeDB.Instance.ListePizza.FirstOrDefault(x => x.Id == id);
             return View(vm);
         }
 
@@ -60,16 +60,36 @@ namespace TPPizza.Controllers
         // GET: Pizza/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            PizzaCreateViewModel vm = new PizzaCreateViewModel();
+
+            vm.Ingredients = FakeDB.Instance.ListeIngredient;
+            vm.Pates = FakeDB.Instance.ListePate;
+
+            vm.Pizza = FakeDB.Instance.ListePizza.FirstOrDefault(x => x.Id == id);
+
+            if (vm.Pizza.Pate != null)
+            {
+                vm.IdPates = vm.Pizza.Pate.Id;
+            }
+
+            if (vm.Pizza.Ingredients.Any())
+            {
+                vm.IdIngredients = vm.Pizza.Ingredients.Select(x => x.Id).ToList();
+            }
+
+            return View(vm);
         }
 
         // POST: Pizza/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(PizzaCreateViewModel vm)
         {
             try
             {
-                // TODO: Add update logic here
+                Pizza pizza = FakeDB.Instance.ListePizza.FirstOrDefault(x => x.Id == vm.Pizza.Id);
+                pizza.Nom = vm.Pizza.Nom;
+                pizza.Pate = FakeDB.Instance.ListePate.FirstOrDefault(x => x.Id == vm.IdPates);
+                pizza.Ingredients = FakeDB.Instance.ListeIngredient.Where(x => vm.IdIngredients.Contains(x.Id)).ToList();
 
                 return RedirectToAction("Index");
             }
