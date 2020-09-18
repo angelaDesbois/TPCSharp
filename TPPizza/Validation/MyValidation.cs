@@ -14,9 +14,10 @@ namespace TPPizza.Validation
         {
             bool result = false;
             List<Ingredient> ingredientSelected = (List<Ingredient>)value;
-            if (ingredientSelected.Count < 2 || ingredientSelected.Count > 5)
+            if (ingredientSelected.Count >= 2 && ingredientSelected.Count <= 5)
             {
                 result = true;
+              
 
             }
 

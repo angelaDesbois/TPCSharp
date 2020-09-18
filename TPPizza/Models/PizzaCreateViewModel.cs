@@ -10,9 +10,9 @@ namespace TPPizza.Models
     public class PizzaCreateViewModel
     {
         public Pizza Pizza { get; set; }
-        [MyValidation()]
-        public List<Ingredient> Ingredients { get; set; }
-        public List<Pate> Pates { get; set; }
+        [MyValidation]
+        public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
+        public List<Pate> Pates { get; set; } = new List<Pate>();
 
        
         public List<int> IdIngredients { get; set; } 

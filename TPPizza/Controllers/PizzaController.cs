@@ -40,6 +40,7 @@ namespace TPPizza.Controllers
         {
             try
             {
+                if (ModelState.IsValid) { 
                 vm.Pizza.Pate = FakeDB.Instance.ListePate.FirstOrDefault(x => x.Id == vm.IdPates);
 
                 vm.Pizza.Ingredients = FakeDB.Instance.ListeIngredient.Where(x => vm.IdIngredients.Contains(x.Id)).ToList();
@@ -49,6 +50,14 @@ namespace TPPizza.Controllers
                 vm.Pizza.Id = FakeDB.Instance.ListePizza.Count == 0 ? 1 : FakeDB.Instance.ListePizza.Max(x=> x.Id)+1;
 
                 return RedirectToAction("Index");
+                }
+                else
+                {
+                    vm.Ingredients = FakeDB.Instance.ListeIngredient;
+                    vm.Pates = FakeDB.Instance.ListePate;
+                    return View(vm);
+
+                }
             }
             catch
             {
@@ -124,5 +133,7 @@ namespace TPPizza.Controllers
                 return View();
             }
         }
+
+
     }
 }
