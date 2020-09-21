@@ -11,9 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo1", "Demo1\Demo1.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP3Chat", "TP3Chat\TP3Chat.csproj", "{F9976AC0-6CFC-4F33-96C7-9A74003539F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BO", "..\BO\BO.csproj", "{6066EAAA-6025-49BC-A1F3-FC6447C42CD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOPizza", "..\BO\BOPizza.csproj", "{6066EAAA-6025-49BC-A1F3-FC6447C42CD9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPPizza", "TPPizza\TPPizza.csproj", "{F95C39AD-749D-4D98-A977-C073071E9F8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOTP6", "..\BOtp6\BOTP6.csproj", "{0BBA0441-0AB7-4112-946B-521C9CEC7367}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPNinja", "TPNinja\TPNinja.csproj", "{406EF40D-0DC9-4361-AC1D-83AD3B7EB796}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{F95C39AD-749D-4D98-A977-C073071E9F8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F95C39AD-749D-4D98-A977-C073071E9F8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F95C39AD-749D-4D98-A977-C073071E9F8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BBA0441-0AB7-4112-946B-521C9CEC7367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BBA0441-0AB7-4112-946B-521C9CEC7367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BBA0441-0AB7-4112-946B-521C9CEC7367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BBA0441-0AB7-4112-946B-521C9CEC7367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{406EF40D-0DC9-4361-AC1D-83AD3B7EB796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{406EF40D-0DC9-4361-AC1D-83AD3B7EB796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{406EF40D-0DC9-4361-AC1D-83AD3B7EB796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{406EF40D-0DC9-4361-AC1D-83AD3B7EB796}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
