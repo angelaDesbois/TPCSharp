@@ -13,7 +13,7 @@ namespace TPPizza.Validation
         public override bool IsValid(object value)
         {
             bool result = false;
-            List<Ingredient> ingredientSelected = (List<Ingredient>)value;
+            List<int> ingredientSelected = (List<int>)value;
             if (ingredientSelected.Count >= 2 && ingredientSelected.Count <= 5)
             {
                 result = true;
@@ -25,8 +25,8 @@ namespace TPPizza.Validation
         }
         public override string FormatErrorMessage(string name)
         {
-            name = "entre 2 et 5";
-            return base.FormatErrorMessage(name);
+          
+            return "entre 2 et 5";
         }
     }
    
