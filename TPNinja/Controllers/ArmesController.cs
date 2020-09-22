@@ -111,6 +111,13 @@ namespace TPNinja.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Arme arme = db.Armes.Find(id);
+
+            var samourais = db.Samourais.Include(x => x.Arme).Where(x => x.Arme.Id == arme.Id).ToList();
+            foreach (var item in samourais)
+            {
+                item.Arme = null;
+                db.Entry(item).State = EntityState.Modified;
+            }
             db.Armes.Remove(arme);
             db.SaveChanges();
             return RedirectToAction("Index");

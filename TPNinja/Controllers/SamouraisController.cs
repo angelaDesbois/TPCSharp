@@ -82,6 +82,7 @@ namespace TPNinja.Controllers
             VmSamourai vm = new VmSamourai();
             vm.samourai = samourai;
             vm.armes = db.Armes.ToList();
+           // vm.armesId = vm.samourai.Arme.Id;
            
             return View(vm);
         }
@@ -97,18 +98,33 @@ namespace TPNinja.Controllers
                  if (ModelState.IsValid)
                 {
                     Samourai samourai = db.Samourais.FirstOrDefault(x => x.Id == vm.samourai.Id);
-                    
-                    vm.samourai.Nom = samourai.Nom;
-                    vm.samourai.Force = samourai.Force;
-                    vm.samourai.Arme = samourai.Arme;
+
+
+                    samourai.Nom = vm.samourai.Nom;
+                    samourai.Force = vm.samourai.Force;
+                // samourai.Arme = vm.samourai.Arme;
+
+
+                    var a = samourai.Arme;
+                    if(vm.armesId != null)
+                {
+                    samourai.Arme = db.Armes.Find(vm.armesId);
+                }
+                else
+                {
+                    samourai.Arme = null;
+                }
                    
-                     db.Entry(vm).State = EntityState.Modified;
+                    
+                   
+
+                    db.Entry(samourai).State = EntityState.Modified;
                      db.SaveChanges();
                      return RedirectToAction("Index");
                 }
             
           
-                 return View();
+                 return View(vm);
             
         }
 
