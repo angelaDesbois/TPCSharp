@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BOTP6;
 using TPNinja.Data;
+using TPNinja.Models;
 
 namespace TPNinja.Controllers
 {
@@ -39,7 +40,9 @@ namespace TPNinja.Controllers
         // GET: Samourais/Create
         public ActionResult Create()
         {
-            return View();
+            VmSamourai vm = new VmSamourai();
+            vm.armes = db.Armes.ToList();
+            return View(vm);
         }
 
         // POST: Samourais/Create
@@ -47,16 +50,17 @@ namespace TPNinja.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Force,Nom")] Samourai samourai)
+        public ActionResult Create(VmSamourai vm)
         {
             if (ModelState.IsValid)
             {
-                db.Samourais.Add(samourai);
+                vm.samourai.Arme = db.Armes.Find(vm.armesId);
+                db.Samourais.Add(vm.samourai);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(samourai);
+            return View(vm);
         }
 
         // GET: Samourais/Edit/5
