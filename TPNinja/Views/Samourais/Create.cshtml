@@ -34,7 +34,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.samourai.Arme, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.armesId, Model.armes.Select(x => new SelectListItem() { Text = x.Nom.ToString(), Value = x.Id.ToString() }), new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownListFor(model => model.armesId, Model.armes.Select(x => new SelectListItem() {Text = x.Nom.ToString(), Value = x.Id.ToString() }),"pas besoin d arme, j te defonce à mains nus!", new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.armes, "", new { @class = "text-danger" })
         </div>
     </div>
