@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOTP6;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -22,5 +23,11 @@ namespace TPNinja.Data
         public System.Data.Entity.DbSet<BOTP6.Samourai> Samourais { get; set; }
 
         public System.Data.Entity.DbSet<BOTP6.Arme> Armes { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+           
+           modelBuilder.Entity<Samourai>().HasOptional(a => a.Arme).WithOptionalPrincipal();
+        }
     }
 }
