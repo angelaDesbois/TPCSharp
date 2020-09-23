@@ -40,7 +40,9 @@ namespace TPNinja.Controllers
         // GET: Samourais/Create
         public ActionResult Create()
         {
+            //toDo => si id arme existe ds la liste alors ne pas l afficher ds la dropdown list
             VmSamourai vm = new VmSamourai();
+            vm.artMartials = db.ArtMartials.ToList();
             vm.armes = db.Armes.ToList();
             return View(vm);
         }
@@ -55,6 +57,7 @@ namespace TPNinja.Controllers
             if (ModelState.IsValid)
             {
                 vm.samourai.Arme = db.Armes.Find(vm.armesId);
+                vm.samourai.artMartials = db.ArtMartials.Where(x => vm.artMatialIdSelected.Contains(x.Id)).ToList();
                 db.Samourais.Add(vm.samourai);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +85,7 @@ namespace TPNinja.Controllers
             VmSamourai vm = new VmSamourai();
             vm.samourai = samourai;
             vm.armes = db.Armes.ToList();
+            vm.artMartials = db.ArtMartials.ToList();
            // vm.armesId = vm.samourai.Arme.Id;
            
             return View(vm);
@@ -114,10 +118,9 @@ namespace TPNinja.Controllers
                 {
                     samourai.Arme = null;
                 }
-                   
-                    
-                   
-
+                
+                
+  
                     db.Entry(samourai).State = EntityState.Modified;
                      db.SaveChanges();
                      return RedirectToAction("Index");

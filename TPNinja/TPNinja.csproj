@@ -127,15 +127,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArmesController.cs" />
+    <Compile Include="Controllers\ArtMartialsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SamouraisController.cs" />
     <Compile Include="Data\TPNinjaContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009211430253_NinjaV1.cs" />
-    <Compile Include="Migrations\202009211430253_NinjaV1.Designer.cs">
-      <DependentUpon>202009211430253_NinjaV1.cs</DependentUpon>
+    <Compile Include="Migrations\202009230750079_tpNinja.cs" />
+    <Compile Include="Migrations\202009230750079_tpNinja.Designer.cs">
+      <DependentUpon>202009230750079_tpNinja.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\VmSamourai.cs" />
@@ -187,6 +188,11 @@
     <Content Include="Views\Armes\Details.cshtml" />
     <Content Include="Views\Armes\Edit.cshtml" />
     <Content Include="Views\Armes\Index.cshtml" />
+    <Content Include="Views\ArtMartials\Create.cshtml" />
+    <Content Include="Views\ArtMartials\Delete.cshtml" />
+    <Content Include="Views\ArtMartials\Details.cshtml" />
+    <Content Include="Views\ArtMartials\Edit.cshtml" />
+    <Content Include="Views\ArtMartials\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -211,8 +217,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009211430253_NinjaV1.resx">
-      <DependentUpon>202009211430253_NinjaV1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009230750079_tpNinja.resx">
+      <DependentUpon>202009230750079_tpNinja.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

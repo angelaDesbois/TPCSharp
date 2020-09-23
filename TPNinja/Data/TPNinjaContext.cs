@@ -1,4 +1,5 @@
-﻿using BOTP6;
+﻿using BO;
+using BOTP6;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -28,6 +29,9 @@ namespace TPNinja.Data
         {
            
            modelBuilder.Entity<Samourai>().HasOptional(a => a.Arme).WithOptionalPrincipal();
+           modelBuilder.Entity<Samourai>().HasMany(x => x.artMartials).WithMany();
         }
+
+        public System.Data.Entity.DbSet<BO.ArtMartial> ArtMartials { get; set; }
     }
 }

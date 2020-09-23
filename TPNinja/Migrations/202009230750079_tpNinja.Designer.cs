@@ -7,13 +7,13 @@ namespace TPNinja.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class NinjaV1 : IMigrationMetadata
+    public sealed partial class tpNinja : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NinjaV1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tpNinja));
         
         string IMigrationMetadata.Id
         {
-            get { return "202009211430253_NinjaV1"; }
+            get { return "202009230750079_tpNinja"; }
         }
         
         string IMigrationMetadata.Source
