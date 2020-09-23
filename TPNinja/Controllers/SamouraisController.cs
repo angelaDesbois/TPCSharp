@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BO;
 using BOTP6;
 using TPNinja.Data;
 using TPNinja.Models;
@@ -113,15 +114,22 @@ namespace TPNinja.Controllers
                     if(vm.armesId != null)
                 {
                     samourai.Arme = db.Armes.Find(vm.armesId);
+
                 }
                 else
                 {
                     samourai.Arme = null;
                 }
-                
-                
-  
-                    db.Entry(samourai).State = EntityState.Modified;
+
+                samourai.artMartials.Clear();
+                foreach (var art in vm.artMatialIdSelected)
+                {
+
+                    ArtMartial artMartial = db.ArtMartials.Find(art);
+                    samourai.artMartials.Add(artMartial);
+                }
+
+                db.Entry(samourai).State = EntityState.Modified;
                      db.SaveChanges();
                      return RedirectToAction("Index");
                 }
