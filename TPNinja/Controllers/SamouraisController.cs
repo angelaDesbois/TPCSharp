@@ -41,9 +41,10 @@ namespace TPNinja.Controllers
         // GET: Samourais/Create
         public ActionResult Create()
         {
-            //toDo => si id arme existe ds la liste alors ne pas l afficher ds la dropdown list
+          
             VmSamourai vm = new VmSamourai();
             vm.artMartials = db.ArtMartials.ToList();
+            
             vm.armes = db.Armes.ToList();
             return View(vm);
         }

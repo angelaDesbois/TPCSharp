@@ -17,5 +17,7 @@ namespace TPNinja.Models
         public List<int> artMatialIdSelected { get; set; } = new List<int>();
        // public int? artMatialIdSelected { get; set; }
 
+
+
     }
 }
