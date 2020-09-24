@@ -16,6 +16,7 @@ namespace TPPizza.Models
         public List<Pate> Pates { get; set; } = new List<Pate>();
 
         [MyValidation]
+        [ValidationPizzaIngredient]
         public List<int> IdIngredients { get; set; } 
         public int? IdPates { get; set; }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TPNinja.Controllers
+namespace test.Controllers
 {
     public class HomeController : Controller
     {
@@ -12,7 +12,7 @@ namespace TPNinja.Controllers
         {
             return View();
         }
-            
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
