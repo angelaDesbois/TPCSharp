@@ -91,7 +91,9 @@ namespace TPNinja.Controllers
             vm.samourai = samourai;
            // vm.armes = db.Armes.ToList();
             vm.artMartials = db.ArtMartials.ToList();
+            
             this.getListeArmesDisposDb(vm);
+            
             // vm.armesId = vm.samourai.Arme.Id;
 
             return View(vm);
@@ -134,7 +136,7 @@ namespace TPNinja.Controllers
                     samourai.artMartials.Add(artMartial);
                 }
 
-                db.Entry(samourai).State = EntityState.Modified;
+                     db.Entry(samourai).State = EntityState.Modified;
                      db.SaveChanges();
                      return RedirectToAction("Index");
                 }
@@ -181,12 +183,17 @@ namespace TPNinja.Controllers
 
         private List<Arme> getListeArmesDisposDb(VmSamourai vm)
         {
-            vm.armes = new List<Arme>();
+          //  vm.armes = new List<Arme>();
             foreach (var arme in db.Armes.ToList())
             {
+               List<int> armeIds = db.Samourais.Where(x => x.Arme != null && x.Id != vm.samourai.Id).Select(x => x.Arme.Id).ToList();
+             
+                vm.armes = db.Armes.Where(x => !armeIds.Contains(x.Id)).ToList();
+
                 if (db.Samourais.Where(x => x.Arme.Id == arme.Id).ToList().Count() == 0)
                 {
                     vm.armes.Add(arme);
+                    
                 }
             }
             return vm.armes;
